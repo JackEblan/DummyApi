@@ -10,7 +10,7 @@ fun PhotoDto.toPhotoEntity(): PhotoEntity {
     )
 }
 
-fun PhotoEntity.toPhotoItem(): Photo {
+fun PhotoEntity.toPhoto(): Photo {
     return Photo(
         description = description, title = title, url = url
     )

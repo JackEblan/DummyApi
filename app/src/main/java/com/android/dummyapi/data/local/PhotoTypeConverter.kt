@@ -11,14 +11,14 @@ import javax.inject.Inject
 class PhotoTypeConverter @Inject constructor(private val gson: Gson) {
 
     @TypeConverter
-    fun fromPhotoList(photoDtoList: List<PhotoDto>): String {
+    fun fromPhotoList(list: List<PhotoDto>): String {
         val type = object : TypeToken<List<PhotoDto>>() {}.type
-        return gson.toJson(photoDtoList, type)
+        return gson.toJson(list, type)
     }
 
     @TypeConverter
-    fun toPhotoList(photoListString: String): List<PhotoDto> {
+    fun toPhotoList(list: String): List<PhotoDto> {
         val type = object : TypeToken<List<PhotoDto>>() {}.type
-        return gson.fromJson(photoListString, type)
+        return gson.fromJson(list, type)
     }
 }

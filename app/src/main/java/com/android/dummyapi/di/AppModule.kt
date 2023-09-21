@@ -29,7 +29,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideDummyDatabase(
+    fun provideRoomDatabase(
         @ApplicationContext context: Context
     ): SlingDatabase {
         return Room.databaseBuilder(
@@ -60,7 +60,7 @@ class AppModule {
     @OptIn(ExperimentalPagingApi::class)
     @Provides
     @Singleton
-    fun provideDummyPager(
+    fun providePager(
         slingDb: SlingDatabase, slingApi: SlingApi
     ): Pager<Int, PhotoEntity> {
         return Pager(config = PagingConfig(pageSize = 20), remoteMediator = SlingRemoteMediator(
